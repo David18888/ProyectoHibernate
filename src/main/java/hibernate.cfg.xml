@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC  "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory> 
+	
+	    <!-- CARGAMOS DRIVER DE MYSQL -->
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		
+		<!-- INDICAMOS LOCALIZACIÓN Y NOMBRE DE LA BASE DE DATOS -->
+		<property name="connection.url">jdbc:mysql://localhost/futbolbd</property> 
+		 
+		 <!--INDICAMOS LOS DATOS DEL USUARIO Y LA CONTRASEÑA -->
+		<property name="connection.username">root</property>
+		<property name="connection.password"></property> 
+
+
+		<property name="connection.pool_size">1</property>
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		
+		<!--ELEGIMOS SI QUEREMOS QUE SE MUESTREN LAS SENTENCIAS SQL AL EJECUTAR EL PROGRAMA O NO (LO PUSE EN FALSE PARA QUE LA CONSOLA NO EJECUTE TANTAS LÍNEAS) --> 
+		<property name="show_sql">false</property> 
+		<!-- AL PONERLO EN CREATE-DROP , CADA VEZ QUE SE EJECUTA EL PROGRAMA SE BORRAN Y CREAN DE NUEVO LOS DATOS QUE HAYAMOS INDICADO -->
+		<property name="hbm2ddl.auto">create-drop</property> 
+		
+		<!-- AQUÍ MAPEAREMOS LAS CLASES EXISTENTES EN NUESTRO PROGRAMA, QUE SERÁN A SU VEZ LAS TABLAS DE LA BD -->
+		
+		<mapping class="aed.hibernate.table.Contratos" />
+		<mapping class="aed.hibernate.table.Futbolistas" />
+		<mapping class="aed.hibernate.table.Equipos" />
+		<mapping class="aed.hibernate.table.Ligas" />
+		<mapping class="aed.hibernate.table.EquiposObservaciones" />
+		
+	</session-factory>
+</hibernate-configuration> 
